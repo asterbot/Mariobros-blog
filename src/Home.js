@@ -1,21 +1,36 @@
-import { useState } from 'react';
+import { useState , useEffect } from 'react';
+import BlogList from './BlogList';
 
 const Home = () => {
 
-    const [blogs, setBlogs] = useState([
-        { title: 'My website is so cool!', body: 'see it :)', author: 'me', id:1},
-        { title: 'I like Mario', body: '(luigi is nice too)', author: 'me', id:2},
-        { title: 'Ok but yoshi', body: 'and his eggs', author: 'me', id:3}
-    ])
+    const [blogs, setBlogs] = useState(null);
+    const [isPending, setIsPending] = useState(true);
+    const [error, setError] = useState(null);
+
+    useEffect(()=>{ 
+        fetch('http://localhost:8000/blogs')
+            .then(res => {
+                if (!res.ok){
+                    throw Error('Could not fetch data for that resource');
+                }
+                return res.json();
+            })
+            .then(data=>{
+                setBlogs(data);
+                setIsPending(false);
+                setError(null);
+            })
+            .catch(err =>{
+                setError(err.message);
+                setIsPending(false);
+            })
+    }, []);
 
     return ( 
         <div className="home">
-            {blogs.map((blog)=>(
-                <div className="blog-preview" key={blog.id}>
-                    <h2>{blog.title}</h2>
-                    <p>Written by: {blog.author}</p>
-                </div> 
-            ))}
+            {error && <div>{error}</div>}
+            {isPending && <div>Loading...</div>}
+            {blogs && <BlogList blogs={blogs} title="All Blogs"/>}
         </div>
      );
 }
