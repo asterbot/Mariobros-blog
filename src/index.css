@@ -15,7 +15,7 @@
   border-bottom: 1px solid #f2f2f2;
 }
 .navbar h1 {
-  color: #f1356d;
+  color: #009cda;
 }
 .navbar .links {
   margin-left: auto;
@@ -26,7 +26,7 @@
   padding: 6px;
 }
 .navbar a:hover {
-  color: #f1356d;
+  color: #009cda;
 }
 .content {
   max-width: 600px;
@@ -43,31 +43,58 @@
 .blog-preview:hover {
   box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
 }
-.blog-preview h2 {
+
+.blog-preview .mario h2{
   font-size: 20px;
-  color: #f1356d;
+  color: #e71e07;
   margin-bottom: 8px;
 }
+
+.blog-preview .luigi h2{
+  font-size: 20px;
+  color: #42b132;
+  margin-bottom: 8px;
+}
+
+
 .blog-preview a{
   text-decoration: none;
 }
 
 /* blog details page */
-.blog-details h2 {
+.blog-details .mario h2 {
   font-size: 20px;
-  color: #f1356d;
+  color: #e71e07;
   margin-bottom: 10px;
 }
-.blog-details div {
-  margin: 20px 0;
-}
-.blog-details button {
-  background: #f1356d;
+
+.blog-details .mario button {
+  background: #e71e07;
   color: #fff;
   border: 0;
   padding: 8px;
   border-radius: 8px;
   cursor: pointer;
+}
+
+.blog-details .luigi h2 {
+  font-size: 20px;
+  color: #42b132;
+  margin-bottom: 10px;
+}
+
+.blog-details .luigi button {
+  background: #42b132;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+
+.blog-details div {
+  margin: 20px 0;
 }
 
 /* create new blog form */
@@ -82,7 +109,7 @@
 }
 .create h2 {
   font-size: 20px;
-  color: #f1356d;
+  color: #009cda;
   margin-bottom: 30px;
 }
 .create input, .create textarea, .create select {
@@ -94,7 +121,7 @@
   display: block;
 }
 .create button {
-  background: #f1356d;
+  background: #009cda;
   color: #fff;
   border: 0;
   padding: 8px;

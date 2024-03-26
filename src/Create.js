@@ -9,6 +9,7 @@ const Create = () => {
     
     const navigate = useNavigate();
 
+    // TODO: Add it so that the latest blog is on top
     const handleSubmit = (e)=>{
         e.preventDefault(); // this prevents a default refresh
         const blog = { title, body, author };
@@ -20,7 +21,6 @@ const Create = () => {
             headers: { "Content-Type": "applications/json"},
             body: JSON.stringify(blog) // convert blog to json string
         }).then(()=>{
-            console.log("New blog added!");
             setIsPending(false);
             setAuthor("");
             setBody("");
